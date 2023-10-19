@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.Scanner;
 import meGusta.DAO;
 import meGusta.Usuario;
-
+import java.nio.file.*;
 public class usuarioService {
 	private UsuarioDAO dao = new UsuarioDAO();
 	private String form;
@@ -24,8 +24,10 @@ public class usuarioService {
 		makeForm(FORM_INSERT, new Usuario(), FORM_ORDERBY_NOME);
 	}
 	public void makeForm(int tipo, Usuario produto, int orderBy) {
-		String nomeArquivo = "registro.html";
+		Path currentRelativePath = Paths.get("");
+		String nomeArquivo = currentRelativePath.toAbsolutePath().toString() +"\\html\\registro.html";
 		form = "";
+		System.out.println(nomeArquivo);
 		try{
 			Scanner entrada = new Scanner(new File(nomeArquivo));
 		    while(entrada.hasNext()){

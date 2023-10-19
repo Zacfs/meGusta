@@ -14,7 +14,7 @@ public class UsuarioDAO extends DAO {
     public boolean inserirUsuario(Usuario usuario) {
         boolean status = false;
         try {
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO \"public\".\"Usuario\" (nome, sobrenome, usuario, email, idade, genero, cs, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = conexao.prepareStatement("INSERT INTO \"public\".\"Usuario\" (id, nome, sobrenome, usuario, email, idade, genero, cs, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             ps.setInt(1, usuario.getId());
             ps.setString(2, usuario.getNome() != null ? usuario.getNome() : "");
             ps.setString(3, usuario.getSobrenome() != null ? usuario.getSobrenome() : "");
